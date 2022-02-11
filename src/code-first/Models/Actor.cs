@@ -1,5 +1,6 @@
-﻿using System.Collections.Generic;
-using HotChocolate.Data.Neo4J;
+﻿using HotChocolate.Data.Neo4J;
+
+using System.Collections.Generic;
 
 namespace MoviesAPI.Models
 {

@@ -3,12 +3,14 @@ using HotChocolate.Data;
 using HotChocolate.Data.Neo4J;
 using HotChocolate.Data.Neo4J.Execution;
 using HotChocolate.Types;
+
 using MoviesAPI.Models;
+
 using Neo4j.Driver;
 
 namespace MoviesAPI.Schema
 {
-    [ExtendObjectType(Name = "Query")]
+    [ExtendObjectType(OperationTypeNames.Query)]
     public class MovieQueries
     {
         [GraphQLName("actors")]
@@ -18,7 +20,7 @@ namespace MoviesAPI.Schema
         [UseSorting]
         public Neo4JExecutable<Actor> GetActors(
             [ScopedService] IAsyncSession session) =>
-            new (session);
+            new(session);
 
         [GraphQLName("movies")]
         [UseNeo4JDatabase(databaseName: "neo4j")]
@@ -27,6 +29,6 @@ namespace MoviesAPI.Schema
         [UseSorting]
         public Neo4JExecutable<Movie> GetMovies(
             [ScopedService] IAsyncSession session) =>
-            new (session);
+            new(session);
     }
 }
