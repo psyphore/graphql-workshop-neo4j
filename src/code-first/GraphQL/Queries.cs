@@ -8,27 +8,26 @@ using MoviesAPI.Models;
 
 using Neo4j.Driver;
 
-namespace MoviesAPI.Schema
-{
-    [ExtendObjectType(OperationTypeNames.Query)]
-    public class MovieQueries
-    {
-        [GraphQLName("actors")]
-        [UseNeo4JDatabase(databaseName: "neo4j")]
-        [UseProjection]
-        [UseFiltering]
-        [UseSorting]
-        public Neo4JExecutable<Actor> GetActors(
-            [ScopedService] IAsyncSession session) =>
-            new(session);
+namespace MoviesAPI.Schema;
 
-        [GraphQLName("movies")]
-        [UseNeo4JDatabase(databaseName: "neo4j")]
-        [UseProjection]
-        [UseFiltering]
-        [UseSorting]
-        public Neo4JExecutable<Movie> GetMovies(
-            [ScopedService] IAsyncSession session) =>
-            new(session);
-    }
+[ExtendObjectType(OperationTypeNames.Query)]
+public class MovieQueries
+{
+    [GraphQLName("actors")]
+    [UseNeo4JDatabase(databaseName: "neo4j")]
+    [UseProjection]
+    [UseFiltering]
+    [UseSorting]
+    public Neo4JExecutable<Actor> GetActors(
+        [ScopedService] IAsyncSession session) =>
+        new(session);
+
+    [GraphQLName("movies")]
+    [UseNeo4JDatabase(databaseName: "neo4j")]
+    [UseProjection]
+    [UseFiltering]
+    [UseSorting]
+    public Neo4JExecutable<Movie> GetMovies(
+        [ScopedService] IAsyncSession session) =>
+        new(session);
 }
