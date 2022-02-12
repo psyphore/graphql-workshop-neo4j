@@ -1,8 +1,6 @@
-﻿using HotChocolate;
-using HotChocolate.Data;
+﻿using HotChocolate.Data;
 using HotChocolate.Data.Neo4J;
 using HotChocolate.Data.Neo4J.Execution;
-using HotChocolate.Types;
 
 using MoviesAPI.Models;
 

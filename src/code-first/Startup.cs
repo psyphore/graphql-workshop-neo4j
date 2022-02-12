@@ -18,10 +18,9 @@ public class Startup
     {
         var section = Configuration.GetSection("Neo4JConnection");
         Neo4JConnection conf = new();
-
         section.Bind(conf);
 
-        IDriver driver = GraphDatabase.Driver(conf.Url, AuthTokens.Basic(conf.Username, conf.Password));
+        var driver = GraphDatabase.Driver(conf.Url, AuthTokens.Basic(conf.Username, conf.Password));
 
         services
             .AddSingleton(driver)
