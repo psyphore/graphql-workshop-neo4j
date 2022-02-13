@@ -6,13 +6,13 @@ using MoviesAPI.Models;
 
 using Neo4j.Driver;
 
-namespace MoviesAPI.Schema;
+namespace MoviesAPI.Schema.Genres;
 
 [ExtendObjectType(OperationTypeNames.Query)]
-public class MovieQueries
+public class ComedyQueries
 {
     [GraphQLName("actors")]
-    [UseNeo4JDatabase(databaseName: "neo4j")]
+    [UseNeo4JDatabase(databaseName: "comedy")]
     [UseProjection]
     [UseFiltering]
     [UseSorting]
@@ -21,7 +21,7 @@ public class MovieQueries
         new(session);
 
     [GraphQLName("movies")]
-    [UseNeo4JDatabase(databaseName: "neo4j")]
+    [UseNeo4JDatabase(databaseName: "comedy")]
     [UseProjection]
     [UseFiltering]
     [UseSorting]
