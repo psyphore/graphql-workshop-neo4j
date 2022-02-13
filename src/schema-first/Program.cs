@@ -2,12 +2,13 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Neo4j.Driver;
 
-
-IDriver driver = GraphDatabase.Driver(
-    "neo4j://localhost:7687", 
-    AuthTokens.Basic("neo4j", "test123"));
-
 var builder = WebApplication.CreateBuilder(args);
+
+var section = builder.Configuration.GetSection("Neo4JConnection");
+Neo4JConnection conf = new();
+section.Bind(conf);
+
+var driver = GraphDatabase.Driver(conf.Url, AuthTokens.Basic(conf.Username, conf.Password));
 
 builder.Services
     .AddSingleton(driver)
