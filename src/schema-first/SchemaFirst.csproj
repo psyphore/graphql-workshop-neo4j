@@ -3,13 +3,19 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <RootNamespace>SchemaFirst</RootNamespace>
+    <PreserveCompilationContext>true</PreserveCompilationContext>
+		<OutputType>Exe</OutputType>
+		<WebProjectMode>true</WebProjectMode>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UserSecretsId>433e166f-2f70-4aa1-8ab7-d3d3b1ecb1d1</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="HotChocolate.Analyzers" Version="12.0.0-preview.23" />
-    <PackageReference Include="HotChocolate.AspNetCore" Version="12.0.0-preview.23" />
-    <PackageReference Include="HotChocolate.Data.Neo4J" Version="12.0.0-preview.23" />
-    <PackageReference Include="Neo4j.Driver" Version="4.3.1" />
+    <PackageReference Include="HotChocolate.Analyzers" Version="12.6.0" />
+    <PackageReference Include="HotChocolate.AspNetCore" Version="12.6.0" />
+	  <PackageReference Include="HotChocolate.Data.Neo4J" Version="12.6.0" />
+    <PackageReference Include="Neo4j.Driver" Version="4.4.0" />
   </ItemGroup>
 
   <!--This item group needs to be in the consuming project.-->
