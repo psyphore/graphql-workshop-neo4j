@@ -12,7 +12,7 @@ namespace MoviesAPI.Schema.Genres;
 public class EpicQueries
 {
     [GraphQLName("actors")]
-    [UseNeo4JDatabase(databaseName: "epic")]
+    [UseNeo4JDatabase(databaseName: "epicgenre")]
     [UseProjection]
     [UseFiltering]
     [UseSorting]
@@ -21,7 +21,7 @@ public class EpicQueries
         new(session);
 
     [GraphQLName("movies")]
-    [UseNeo4JDatabase(databaseName: "epic")]
+    [UseNeo4JDatabase(databaseName: "epicgenre")]
     [UseProjection]
     [UseFiltering]
     [UseSorting]

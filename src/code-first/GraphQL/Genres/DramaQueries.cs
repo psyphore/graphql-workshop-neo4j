@@ -12,7 +12,7 @@ namespace MoviesAPI.Schema.Genres;
 public class DramaQueries
 {
     [GraphQLName("actors")]
-    [UseNeo4JDatabase(databaseName: "drama")]
+    [UseNeo4JDatabase(databaseName: "dramagenre")]
     [UseProjection]
     [UseFiltering]
     [UseSorting]
@@ -21,7 +21,7 @@ public class DramaQueries
         new(session);
 
     [GraphQLName("movies")]
-    [UseNeo4JDatabase(databaseName: "drama")]
+    [UseNeo4JDatabase(databaseName: "dramagenre")]
     [UseProjection]
     [UseFiltering]
     [UseSorting]
