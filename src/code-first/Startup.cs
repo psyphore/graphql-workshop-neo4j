@@ -1,6 +1,5 @@
 using HotChocolate.Data.Neo4J;
 
-using MoviesAPI.Schema;
 using MoviesAPI.Schema.Genres;
 
 using Neo4j.Driver;
@@ -26,15 +25,12 @@ public class Startup
         services
             .AddSingleton(driver)
             .AddGraphQLServer()
+
                 .AddQueryType(q => q.Name("Query"))
-                    .AddTypes(new[]
-                    {
-                        typeof(MovieQueries),
-                        typeof(ActionQueries),
-                        typeof(ComedyQueries),
-                        typeof(DramaQueries),
-                        typeof(EpicQueries),
-                    })
+                    //.AddType<MovieQueries>()
+                    //.AddType<ActionQueries>()
+                    .AddType<CyberpunkQueries>()
+
             .AddNeo4JFiltering()
             .AddNeo4JSorting()
             .AddNeo4JProjections();
