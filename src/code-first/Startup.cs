@@ -1,6 +1,9 @@
 using HotChocolate.Data.Neo4J;
 
+using MoviesAPI.Executables;
+using MoviesAPI.Interceptors;
 using MoviesAPI.Schema.Genres;
+using MoviesAPI.Services;
 
 using Neo4j.Driver;
 
@@ -24,16 +27,26 @@ public class Startup
 
         services
             .AddSingleton(driver)
+            .AddScoped(typeof(FlexExecutable<>))
+            .AddTransient<PersonService>()
+            .AddTransient<MovieService>()
+            ;
+
+        services
             .AddGraphQLServer()
 
-                .AddQueryType(q => q.Name("Query"))
-                    //.AddType<MovieQueries>()
-                    //.AddType<ActionQueries>()
+                .AddQueryType(q => q.Name(OperationTypeNames.Query))
                     .AddType<CyberpunkQueries>()
+
+                .AddMutationType(q => q.Name(OperationTypeNames.Mutation))
+                    .AddType<CyberpunkMutations>()
 
             .AddNeo4JFiltering()
             .AddNeo4JSorting()
-            .AddNeo4JProjections();
+            .AddNeo4JProjections()
+
+            .AddHttpRequestInterceptor<RequestInterceptor>()
+            ;
 
         services.AddCors();
     }
