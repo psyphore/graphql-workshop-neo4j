@@ -2,7 +2,7 @@
 
 namespace MoviesAPI.Models;
 
-public class Actor
+public class Person
 {
     public string? Name { get; set; }
 

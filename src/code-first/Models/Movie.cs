@@ -7,5 +7,5 @@ public class Movie
     public string? Title { get; set; }
 
     [Neo4JRelationship("ACTED_IN", RelationshipDirection.Incoming)]
-    public List<Actor> Actors { get; set; } = new();
+    public List<Person> Actors { get; set; } = new();
 }
