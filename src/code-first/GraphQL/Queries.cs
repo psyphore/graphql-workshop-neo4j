@@ -16,7 +16,7 @@ public class MovieQueries
     [UseProjection]
     [UseFiltering]
     [UseSorting]
-    public Neo4JExecutable<Actor> GetActors(
+    public Neo4JExecutable<Person> GetActors(
         [ScopedService] IAsyncSession session) =>
         new(session);
 
